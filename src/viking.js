@@ -69,9 +69,25 @@ class War {
     return result
   }
 
+  saxonAttack(){
+    let s = Math.floor(Math.random()*this.saxonArmy.length)
+    let randomS = this.saxonArmy[s]
+    let v = Math.floor(Math.random()*this.vikingArmy.length)
+    let randomV = this.vikingArmy[v]
+    let result = randomV.receiveDamage(randomS.strength)
+    if (randomV.health<0) {
+      this.vikingArmy.splice(v,1)
+    }
+    console.log(result)
+    return result
+  }
 }
 
 let flameWar = new War
 flameWar.addSaxon(Steve)
 flameWar.addViking(Sigfried)
 flameWar.vikingAttack();
+
+let George = new Saxon(500,1000)
+flameWar.addSaxon(George)
+flameWar.saxonAttack()
