@@ -26,10 +26,24 @@ class Viking extends Soldier {
       return `${this.name} has died in act of combat`;
     }
   };
+  battleCry = () => {
+    return 'Odin Owns You All!'
+  }
 }
 let Sigfried = new Viking("Sigfried", 500, 200);
 // Saxon
-class Saxon {}
+class Saxon extends Soldier {
+  receiveDamage = (dmg) => {
+    this.health -= dmg;
+    if (this.health > 0) {
+      return `A Saxon has received ${dmg} points of damage`;
+    } else {
+      return `A Saxon has died in combat`;
+    }
+  };
+}
+
+let Steve = new Saxon(100, 50);
 
 // War
 class War {}
