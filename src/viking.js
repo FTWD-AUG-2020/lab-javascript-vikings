@@ -46,4 +46,19 @@ class Saxon extends Soldier {
 let Steve = new Saxon(100, 50);
 
 // War
-class War {}
+class War {
+  vikingArmy=[]
+  saxonArmy=[]
+
+  addViking(soldier){
+    this.vikingArmy.push(soldier)
+  }
+  addSaxon(soldier){
+    this.saxonArmy.push(soldier)
+  }
+
+}
+
+let flameWar= new War
+flameWar.addSaxon(Steve)
+flameWar.addViking(Sigfried)
