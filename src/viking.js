@@ -47,18 +47,31 @@ let Steve = new Saxon(100, 50);
 
 // War
 class War {
-  vikingArmy=[]
-  saxonArmy=[]
+  vikingArmy = []
+  saxonArmy = []
 
-  addViking(soldier){
+  addViking(soldier) {
     this.vikingArmy.push(soldier)
   }
-  addSaxon(soldier){
+  addSaxon(soldier) {
     this.saxonArmy.push(soldier)
+  }
+  vikingAttack() {
+    let v = Math.floor(Math.random() * this.vikingArmy.length)
+    let randomV = this.vikingArmy[v]
+    let s = Math.floor(Math.random() * this.saxonArmy.length)
+    let randomS = this.saxonArmy[s]
+    let result = randomS.receiveDamage(randomV.strength)
+    if (randomS.health < 0) {
+      this.saxonArmy.splice(s, 1)
+    }
+    console.log(result)
+    return result
   }
 
 }
 
-let flameWar= new War
+let flameWar = new War
 flameWar.addSaxon(Steve)
 flameWar.addViking(Sigfried)
+flameWar.vikingAttack();
